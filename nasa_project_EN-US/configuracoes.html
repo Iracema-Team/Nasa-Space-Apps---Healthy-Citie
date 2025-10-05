@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Preto Verde - Settings</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🌳</div>
+                <div>
+                    <h1 class="app-title">Rio Preto Verde</h1>
+                    <span class="app-subtitle">Settings and Data</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span class="user-info">👤 Secretariat of the Environment</span>
+                <span class="date-info">📅 Updated: Today, 14:30</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">← Back to Dashboard</a>
+                </div>
+
+                <div class="metrics-panel">
+                    <h2 class="panel-title">⚙️ Navigation</h2>
+                    
+                    <div class="config-nav-item active">
+                        <span class="config-icon">📊</span>
+                        <span>Data Sources</span>
+                    </div>
+
+                    <div class="navigation-links">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Main Dashboard</span>
+                    </a>
+                    <a href="bairro.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Neighborhood Analysis</span>
+                    </a>
+                    <a href="brasil.html" class="nav-link">
+                        <span class="nav-icon">🇧🇷</span>
+                        <span>National Overview</span>
+                    </a>
+                    <a href="alertas.html" class="nav-link">
+                        <span class="nav-icon">🎯</span>
+                        <span>Alert Calibration</span>
+                    </a>
+                </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">🔔</span>
+                        <span>Notifications</span>
+                    </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">👥</span>
+                        <span>Users</span>
+                    </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">📄</span>
+                        <span>Reports</span>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <h3 class="panel-title">ℹ️ System</h3>
+                    <div class="info-item">
+                        <span class="info-label">Version:</span>
+                        <span class="info-value">2.1.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Update:</span>
+                        <span class="info-value">03/15/2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value status-active">✓ Operational</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="config-container">
+                <section class="config-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📊 Data Sources</h2>
+                        <button class="secondary-btn">🔄 Sync Data</button>
+                    </div>
+
+                    <div class="data-sources-grid">
+                        <div class="source-card">
+                            <div class="source-header">
+                                <div class="source-icon satellite">🛰️</div>
+                                <div class="source-info">
+                                    <h3 class="source-name">NASA Landsat</h3>
+                                    <p class="source-description">Vegetation Cover Index (NDVI)</p>
+                                </div>
+                                <div class="source-status active">✓ Active</div>
+                            </div>
+                            <div class="source-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Resolution:</span>
+                                    <span class="detail-value">30m</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Frequency:</span>
+                                    <span class="detail-value">16 days</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Last Collection:</span>
+                                    <span class="detail-value">03/10/2024</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">API:</span>
+                                    <span class="detail-value">Earth Engine</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="source-card">
+                            <div class="source-header">
+                                <div class="source-icon fire">🔥</div>
+                                <div class="source-info">
+                                    <h3 class="source-name">NASA FIRMS</h3>
+                                    <p class="source-description">Heat Hotspot Alerts</p>
+                                </div>
+                                <div class="source-status active">✓ Active</div>
+                            </div>
+                            <div class="source-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Resolution:</span>
+                                    <span class="detail-value">1km</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Frequency:</span>
+                                    <span class="detail-value">Real-time</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Last Collection:</span>
+                                    <span class="detail-value">Today, 14:30</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">API:</span>
+                                    <span class="detail-value">FIRMS API v1</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="source-card">
+                            <div class="source-header">
+                                <div class="source-icon temperature">🌡️</div>
+                                <div class="source-info">
+                                    <h3 class="source-name">LST Model</h3>
+                                    <p class="source-description">Land Surface Temperature</p>
+                                </div>
+                                <div class="source-status active">✓ Active</div>
+                            </div>
+                            <div class="source-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Resolution:</span>
+                                    <span class="detail-value">100m</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Frequency:</span>
+                                    <span class="detail-value">Daily</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Last Collection:</span>
+                                    <span class="detail-value">Today, 06:00</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Source:</span>
+                                    <span class="detail-value">MODIS Terra</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="source-card">
+                            <div class="source-header">
+                                <div class="source-icon local">🏛️</div>
+                                <div class="source-info">
+                                    <h3 class="source-name">City Hall Data</h3>
+                                    <p class="source-description">Neighborhood Boundaries and Records</p>
+                                </div>
+                                <div class="source-status active">✓ Active</div>
+                            </div>
+                            <div class="source-details">
+                                <div class="detail-row">
+                                    <span class="detail-label">Format:</span>
+                                    <span class="detail-value">Shapefile</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Frequency:</span>
+                                    <span class="detail-value">Annual</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Last Update:</span>
+                                    <span class="detail-value">01/01/2024</span>
+                                </div>
+                                <div class="detail-row">
+                                    <span class="detail-label">Source:</span>
+                                    <span class="detail-value">Planning Dept.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="config-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🔌 API Information</h2>
+                    </div>
+
+                    <div class="api-info-panel">
+                        <div class="api-endpoint">
+                            <div class="endpoint-header">
+                                <span class="endpoint-method get">GET</span>
+                                <code class="endpoint-url">/api/v1/districts</code>
+                            </div>
+                            <p class="endpoint-description">Returns a list of neighborhoods with VCI metrics</p>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="endpoint-header">
+                                <span class="endpoint-method get">GET</span>
+                                <code class="endpoint-url">/api/v1/fire-alerts</code>
+                            </div>
+                            <p class="endpoint-description">Returns active heat hotspot alerts</p>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="endpoint-header">
+                                <span class="endpoint-method get">GET</span>
+                                <code class="endpoint-url">/api/v1/lst-data</code>
+                            </div>
+                            <p class="endpoint-description">Returns Land Surface Temperature (LST) data</p>
+                        </div>
+
+                        <div class="api-endpoint">
+                            <div class="endpoint-header">
+                                <span class="endpoint-method post">POST</span>
+                                <code class="endpoint-url">/api/v1/reports/generate</code>
+                            </div>
+                            <p class="endpoint-description">Generates a planting prioritization report</p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

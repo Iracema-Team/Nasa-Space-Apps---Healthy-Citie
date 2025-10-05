@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Preto Verde - Main Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🌳</div>
+                <div>
+                    <h1 class="app-title">Rio Preto Verde</h1>
+                    <span class="app-subtitle">Geospatial Environmental Management System</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span class="user-info">👤 Secretariat of Environment and Urban Planning</span>
+                <span class="date-info">📅 Updated: Today, 14:30</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="metrics-panel">
+                    <h2 class="panel-title">📊 General Summary</h2>
+                    
+                    <div class="metric-card primary">
+                        <div class="metric-icon">🌿</div>
+                        <div class="metric-content">
+                            <div class="metric-label" style="color: white;">Average City VCI</div>
+                            <div class="metric-value" style="color: white;">45%</div>
+                            <div class="metric-trend positive">▲ +2% vs. previous year</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card alert">
+                        <div class="metric-icon">🔥</div>
+                        <div class="metric-content">
+                            <div class="metric-label" style="color: white;">Active Heat Hotspots</div>
+                            <div class="metric-value" style="color: white;">5</div>
+                            <div class="metric-subtitle">Last 24 hours</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card warning">
+                        <div class="metric-icon">⚠️</div>
+                        <div class="metric-content">
+                            <div class="metric-label" style="color: white;">Priority Zones</div>
+                            <div class="metric-value" style="color: white;" >12</div>
+                            <div class="metric-subtitle">Neighborhoods with VCI < 30%</div>
+                        </div>
+                    </div>
+
+                    <div class="metric-card info">
+                        <div class="metric-icon">🌡️</div>
+                        <div class="metric-content">
+                            <div class="metric-label" style="color: white;">Average LST Temperature</div>
+                            <div class="metric-value" style="color: white;">32.5°C</div>
+                            <div class="metric-subtitle">Urban surface</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="layer-controls">
+                    <h3 class="control-title">🗺️ Map Layers</h3>
+                    
+                    <label class="toggle-item">
+                        <input type="checkbox" checked class="toggle-checkbox" id="layer-fires">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">
+                            <span class="toggle-icon alert-icon">🔥</span>
+                            Fire Alerts (FIRMS)
+                        </span>
+                    </label>
+
+                    <label class="toggle-item">
+                        <input type="checkbox" checked class="toggle-checkbox" id="layer-icv">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">
+                            <span class="toggle-icon">🌿</span>
+                            Low VCI Zones (< 30%)
+                        </span>
+                    </label>
+
+                    <label class="toggle-item">
+                        <input type="checkbox" class="toggle-checkbox" id="layer-heat">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">
+                            <span class="toggle-icon">🌡️</span>
+                            Urban Heat Islands (LST)
+                        </span>
+                    </label>
+
+                    <label class="toggle-item">
+                        <input type="checkbox" class="toggle-checkbox" id="layer-co2">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">
+                            <span class="toggle-icon">💨</span>
+                            CO₂ Emissions (Traffic)
+                        </span>
+                    </label>
+
+                    <label class="toggle-item">
+                        <input type="checkbox" checked class="toggle-checkbox" id="layer-districts">
+                        <span class="toggle-slider"></span>
+                        <span class="toggle-label">
+                            <span class="toggle-icon">📍</span>
+                            Neighborhood Boundaries
+                        </span>
+                    </label>
+                </div>
+
+                <button class="action-button">
+                    📊 Generate Planting Prioritization Report
+                </button>
+        
+                <div class="navigation-links">
+                    <a href="bairro.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Neighborhood Analysis</span>
+                    </a>
+                    <a href="brasil.html" class="nav-link">
+                        <span class="nav-icon">🇧🇷</span>
+                        <span>National Overview</span>
+                    </a>
+                    <a href="configuracoes.html" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Settings and Data</span>
+                    </a>
+                </div>
+            </aside>
+
+            <main class="map-container">
+                <div class="map-header">
+                    <h2 class="map-title">🗺️ Interactive Map of São José do Rio Preto</h2>
+                    <div class="map-controls">
+                        <button class="map-btn" id="zoom-in">🔍 Zoom In</button>
+                        <button class="map-btn" id="zoom-out">🔍 Zoom Out</button>
+                        <button class="map-btn" id="locate">📍 Center</button>
+                        <button class="map-btn" id="fullscreen">⛶ Fullscreen</button>
+                    </div>
+                </div>
+
+                <div id="map" class="map-view"></div>
+
+                <div class="map-legend">
+                    <h4 class="legend-title">📖 Map Legend</h4>
+                    <div class="legend-items">
+                        <div class="legend-section">
+                            <h5 class="legend-section-title">Neighborhoods</h5>
+                            <div class="legend-item">
+                                <span class="legend-marker priority">⚠️</span>
+                                <span>Priority (VCI < 30%)</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-marker normal">📍</span>
+                                <span>Adequate (VCI ≥ 30%)</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-section">
+                            <h5 class="legend-section-title">Environmental Alerts</h5>
+                            <div class="legend-item">
+                                <span class="legend-marker fire">🔥</span>
+                                <span>Active Heat Hotspot</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color low-icv"></span>
+                                <span>Low VCI Zone</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color heat-island"></span>
+                                <span>Heat Island (LST)</span>
+                            </div>
+                        </div>
+
+                        <div class="legend-section">
+                            <h5 class="legend-section-title">Traffic and Emissions</h5>
+                            <div class="legend-item">
+                                <span class="legend-color traffic-high"></span>
+                                <span>High Traffic</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color traffic-medium"></span>
+                                <span>Medium Traffic</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color co2-high"></span>
+                                <span>High CO₂ Emission</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

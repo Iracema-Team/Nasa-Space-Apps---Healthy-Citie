@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Preto Verde - Neighborhood Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+            integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+            crossorigin=""></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🌳</div>
+                <h1 class="app-title">Rio Preto Verde</h1>
+            </div>
+            <div class="header-info">
+                <span class="user-info">Secretariat of the Environment</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">← Back to Dashboard</a>
+                </div>
+
+                <div class="metrics-panel">
+                    <h2 class="panel-title">Santa Fé Neighborhood</h2>
+                    
+                    <div class="metric-card alert">
+                        <div class="metric-label">Neighborhood VCI</div>
+                        <div class="metric-value">18%</div>
+                        <div class="metric-subtitle">Far below target (50%)</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">LST Variation</div>
+                        <div class="metric-value">+4.5°C</div>
+                        <div class="metric-subtitle">Above city average</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">CO₂ Emission</div>
+                        <div class="metric-value">High</div>
+                        <div class="metric-subtitle">Proxy by traffic</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Estimated Population</div>
+                        <div class="metric-value">12,500</div>
+                        <div class="metric-subtitle">Inhabitants</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-label">Total Area</div>
+                        <div class="metric-value">3.2 km²</div>
+                        <div class="metric-subtitle">Urban zone</div>
+                    </div>
+                </div>
+
+                <div class="recommendation-panel">
+                    <h3 class="recommendation-title">💡 Recommendation</h3>
+                    <p class="recommendation-text">
+                        Implement <strong>500 new large-canopy trees</strong> in the identified priority areas.
+                    </p>
+                    <p class="recommendation-text">
+                        Suggested species: Ipê, Sibipiruna, Oiti
+                    </p>
+                    <p class="recommendation-impact">
+                        Expected impact: <strong>+15% in VCI</strong> in 5 years
+                    </p>
+                </div>
+
+                <button class="action-button">
+                    📄 Generate Detailed Report
+                </button>
+
+              <div class="navigation-links">
+                    <a href="index.html" class="nav-link">🏠 Main Dashboard</a>
+                    <a href="configuracoes.html" class="nav-link">⚙️ Settings</a>
+                </div>
+            </aside>
+
+            <main class="detail-container">
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">🏠 Dashboard</a>
+                    <span>&gt;</span>
+                    <span class="breadcrumb-current">Neighborhood Analysis: Santa Fé</span>
+                </div>
+
+                <section class="detail-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📍 Detailed Map: Santa Fé</h2>
+                    </div>
+
+                    <div id="district-map" class="district-map-view"></div>
+
+                    <div class="map-legend">
+                        <h4 class="legend-title">Legend</h4>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-marker priority"></span>
+                                <span>Neighborhood Marker</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: rgba(244, 67, 54, 0.4);"></span>
+                                <span>Priority Planting Area</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: rgba(244, 67, 54, 0.15);"></span>
+                                <span>Neighborhood Analysis Radius</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="detail-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📊 VCI Comparison</h2>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-wrapper">
+                            <div class="bar-chart">
+                                <div class="chart-bars">
+                                    <div class="bar-group">
+                                        <div class="bar-label">Santa Fé</div>
+                                        <div class="bar-wrapper">
+                                            <div class="bar bar-low" style="width: 18%;">
+                                                <span class="bar-value">18%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bar-group">
+                                        <div class="bar-label">City Average</div>
+                                        <div class="bar-wrapper">
+                                            <div class="bar bar-medium" style="width: 45%;">
+                                                <span class="bar-value">45%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bar-group">
+                                        <div class="bar-label">Municipal Target</div>
+                                        <div class="bar-wrapper">
+                                            <div class="bar bar-target" style="width: 50%;">
+                                                <span class="bar-value">50%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="bar-group">
+                                        <div class="bar-label">Projection (5 years)</div>
+                                        <div class="bar-wrapper">
+                                            <div class="bar bar-projection" style="width: 33%;">
+                                                <span class="bar-value">33%</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="detail-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📈 Environmental Statistics</h2>
+                    </div>
+
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">🌡️</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Average LST Temperature</div>
+                                <div class="stat-value">36.8°C</div>
+                                <div class="stat-comparison negative">+4.5°C vs. city</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">🌳</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Existing Trees</div>
+                                <div class="stat-value">1,240</div>
+                                <div class="stat-comparison">~10 trees/hectare</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">💨</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Air Quality</div>
+                                <div class="stat-value">Moderate</div>
+                                <div class="stat-comparison">PM2.5: 35 μg/m³</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <div class="stat-icon">💧</div>
+                            <div class="stat-content">
+                                <div class="stat-label">Soil Permeability</div>
+                                <div class="stat-value">22%</div>
+                                <div class="stat-comparison negative">Low</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

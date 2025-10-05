@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Preto Verde - Calibration</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🌳</div>
+                <div>
+                    <h1 class="app-title">Rio Preto Verde</h1>
+                    <span class="app-subtitle">Settings and Data</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span class="user-info">👤 Secretariat of the Environment</span>
+                <span class="date-info">📅 Updated: Today, 14:30</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">← Back to Dashboard</a>
+                </div>
+
+                <div class="metrics-panel">
+                    <h2 class="panel-title">⚙️ Navigation</h2>
+                    
+                    <div class="navigation-links">
+                        <a href="index.html" class="nav-link">
+                            <span class="nav-icon">🏠</span>
+                            <span>Main Dashboard</span>
+                        </a>
+                        <a href="bairro.html" class="nav-link">
+                            <span class="nav-icon">📍</span>
+                            <span>Neighborhood Analysis</span>
+                        </a>
+                        <a href="brasil.html" class="nav-link">
+                            <span class="nav-icon">🇧🇷</span>
+                            <span>National Overview</span>
+                        </a>
+                        <a href="configuracoes.html" class="nav-link">
+                            <span class="nav-icon">📊</span>
+                            <span>Data Sources</span>
+                        </a>
+                    </div>
+
+                    <div class="config-nav-item active">
+                        <span class="config-icon">🎯</span>
+                        <span>Alert Calibration</span>
+                    </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">🔔</span>
+                        <span>Notifications</span>
+                    </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">👥</span>
+                        <span>Users</span>
+                    </div>
+
+                    <div class="config-nav-item">
+                        <span class="config-icon">📄</span>
+                        <span>Reports</span>
+                    </div>
+                </div>
+
+                <div class="info-panel">
+                    <h3 class="panel-title">ℹ️ System</h3>
+                    <div class="info-item">
+                        <span class="info-label">Version:</span>
+                        <span class="info-value">2.1.0</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Last Update:</span>
+                        <span class="info-value">03/15/2024</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-label">Status:</span>
+                        <span class="info-value status-active">✓ Operational</span>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="config-container">
+                <section class="config-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🎯 Alert Calibration</h2>
+                        <button class="secondary-btn">💾 Save Changes</button>
+                    </div>
+
+                    <div class="calibration-panel">
+                        <div class="calibration-item">
+                            <div class="calibration-header">
+                                <label class="calibration-label">🌿 VCI Alert Threshold</label>
+                                <span class="calibration-value" id="icv-value">30%</span>
+                            </div>
+                            <p class="calibration-description">
+                                Neighborhoods with VCI below this value will be marked as priorities.
+                            </p>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="icv-slider" min="10" max="50" value="30" step="5">
+                                <div class="slider-labels">
+                                    <span>10%</span>
+                                    <span>20%</span>
+                                    <span>30%</span>
+                                    <span>40%</span>
+                                    <span>50%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calibration-item">
+                            <div class="calibration-header">
+                                <label class="calibration-label">🔥 Fire Detection Sensitivity</label>
+                                <span class="calibration-value" id="fire-value">High</span>
+                            </div>
+                            <p class="calibration-description">
+                                Adjusts the minimum confidence level for heat hotspot alerts.
+                            </p>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="fire-slider" min="1" max="3" value="3" step="1">
+                                <div class="slider-labels">
+                                    <span>Low</span>
+                                    <span>Medium</span>
+                                    <span>High</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calibration-item">
+                            <div class="calibration-header">
+                                <label class="calibration-label">🌡️ LST Temperature Threshold</label>
+                                <span class="calibration-value" id="temp-value">35°C</span>
+                            </div>
+                            <p class="calibration-description">
+                                Temperature above which an area is considered a heat island.
+                            </p>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="temp-slider" min="30" max="45" value="35" step="1">
+                                <div class="slider-labels">
+                                    <span>30°C</span>
+                                    <span>35°C</span>
+                                    <span>40°C</span>
+                                    <span>45°C</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calibration-item">
+                            <div class="calibration-header">
+                                <label class="calibration-label">🎯 Municipal VCI Target</label>
+                                <span class="calibration-value" id="target-value">50%</span>
+                            </div>
+                            <p class="calibration-description">
+                                The vegetation cover goal for the city.
+                            </p>
+                            <div class="slider-container">
+                                <input type="range" class="slider" id="target-slider" min="40" max="70" value="50" step="5">
+                                <div class="slider-labels">
+                                    <span>40%</span>
+                                    <span>50%</span>
+                                    <span>60%</span>
+                                    <span>70%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

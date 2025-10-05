@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rio Preto Verde - Prioritization Report</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-icon">🌳</div>
+                <div>
+                    <h1 class="app-title">Rio Preto Verde</h1>
+                    <span class="app-subtitle">Planting Prioritization Report</span>
+                </div>
+            </div>
+            <div class="header-info">
+                <span class="user-info">👤 Secretariat of the Environment</span>
+                <span class="date-info">📅 Generated on: <span id="report-date"></span></span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <aside class="sidebar">
+                <div class="breadcrumb">
+                    <a href="index.html" class="breadcrumb-link">← Back to Dashboard</a>
+                </div>
+
+                <div class="metrics-panel">
+                    <h2 class="panel-title">📊 Executive Summary</h2>
+                    
+                    <div class="summary-metric">
+                        <span class="summary-label">Total Issues:</span>
+                        <span class="summary-value alert">8</span>
+                    </div>
+
+                    <div class="summary-metric">
+                        <span class="summary-label">Priority Areas:</span>
+                        <span class="summary-value warning">5</span>
+                    </div>
+
+                    <div class="summary-metric">
+                        <span class="summary-label">Total Estimated Cost:</span>
+                        <span class="summary-value">R$ 2.4M</span>
+                    </div>
+
+                    <div class="summary-metric">
+                        <span class="summary-label">Implementation Timeline:</span>
+                        <span class="summary-value">18 months</span>
+                    </div>
+
+                    <div class="summary-metric">
+                        <span class="summary-label">Expected Impact:</span>
+                        <span class="summary-value success">+12% VCI</span>
+                    </div>
+                </div>
+
+                <div class="action-panel">
+                    <h3 class="panel-title">⚡ Quick Actions</h3>
+                    <button class="action-btn primary" onclick="generatePDF()">
+                        📄 Generate PDF
+                    </button>
+                    <button class="action-btn secondary" onclick="sendToAgency()">
+                        📧 Send to Agency
+                    </button>
+                    <button class="action-btn tertiary" onclick="exportData()">
+                        💾 Export Data
+                    </button>
+                </div>
+
+                <div class="navigation-links">
+                    <a href="index.html" class="nav-link">
+                        <span class="nav-icon">🏠</span>
+                        <span>Main Dashboard</span>
+                    </a>
+                    <a href="bairro.html" class="nav-link">
+                        <span class="nav-icon">📍</span>
+                        <span>Neighborhood Analysis</span>
+                    </a>
+                    <a href="configuracoes.html" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span>Settings and Data</span>
+                    </a>
+                </div>
+            </aside>
+
+            <main class="report-container">
+                <section class="report-section">
+                    <div class="section-header">
+                        <h2 class="section-title">🚨 Detected Issues</h2>
+                        <span class="section-badge">8 issues identified</span>
+                    </div>
+
+                    <div class="problems-grid">
+                        <div class="problem-card critical">
+                            <div class="problem-header">
+                                <div class="problem-icon">🔴</div>
+                                <div class="problem-info">
+                                    <h3 class="problem-title">Low VCI - HB Neighborhood</h3>
+                                    <span class="problem-severity critical">Critical</span>
+                                </div>
+                            </div>
+                            <div class="problem-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Type:</span>
+                                    <span class="detail-value">Insufficient Vegetation Cover</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Affected Area:</span>
+                                    <span class="detail-value">3.2 km²</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Current VCI:</span>
+                                    <span class="detail-value">18%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Impact:</span>
+                                    <span class="detail-value">Heat island (+5.2°C), low air quality</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-card critical">
+                            <div class="problem-header">
+                                <div class="problem-icon">🔴</div>
+                                <div class="problem-info">
+                                    <h3 class="problem-title">Low VCI - Santa Fé Neighborhood</h3>
+                                    <span class="problem-severity critical">Critical</span>
+                                </div>
+                            </div>
+                            <div class="problem-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Type:</span>
+                                    <span class="detail-value">Insufficient Vegetation Cover</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Affected Area:</span>
+                                    <span class="detail-value">2.8 km²</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Current VCI:</span>
+                                    <span class="detail-value">18%</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Impact:</span>
+                                    <span class="detail-value">Heat island (+4.5°C), high CO₂ emission</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-card high">
+                            <div class="problem-header">
+                                <div class="problem-icon">🟠</div>
+                                <div class="problem-info">
+                                    <h3 class="problem-title">Active Heat Hotspots</h3>
+                                    <span class="problem-severity high">High</span>
+                                </div>
+                            </div>
+                            <div class="problem-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Type:</span>
+                                    <span class="detail-value">Urban Fires</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Affected Area:</span>
+                                    <span class="detail-value">5 locations</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Detections (24h):</span>
+                                    <span class="detail-value">5 hotspots</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Impact:</span>
+                                    <span class="detail-value">Air pollution, public health risk</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="problem-card high">
+                            <div class="problem-header">
+                                <div class="problem-icon">🟠</div>
+                                <div class="problem-info">
+                                    <h3 class="problem-title">High CO₂ Emission - Downtown</h3>
+                                    <span class="problem-severity high">High</span>
+                                </div>
+                            </div>
+                            <div class="problem-details">
+                                <div class="detail-item">
+                                    <span class="detail-label">Type:</span>
+                                    <span class="detail-value">Intense Traffic</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Affected Area:</span>
+                                    <span class="detail-value">1.5 km²</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Estimated Emission:</span>
+                                    <span class="detail-value">850 ton/year</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Impact:</span>
+                                    <span class="detail-value">Compromised air quality</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="report-section">
+                    <div class="section-header">
+                        <h2 class="section-title">💡 Proposed Solutions</h2>
+                        <span class="section-badge">4 priority solutions</span>
+                    </div>
+
+                    <div class="solutions-list">
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <h3 class="solution-title">🌳 Intensive Urban Forestry Program - Priority Neighborhoods</h3>
+                                <span class="solution-priority critical">Maximum Priority</span>
+                            </div>
+                            
+                            <p class="solution-description">
+                                Implementation of a massive planting program for native, large-canopy trees in the HB, Santa Fé, Talhado, and Schmitt neighborhoods, aiming to increase VCI to at least 30% in 18 months.
+                            </p>
+
+                            <div class="solution-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-icon">💰</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Estimated Cost</span>
+                                        <span class="metric-value">R$ 1,200,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⏱️</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Timeline</span>
+                                        <span class="metric-value">18 months</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">📈</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Expected Impact</span>
+                                        <span class="metric-value">+15% average VCI</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-steps">
+                                <h4 class="steps-title">Implementation Steps:</h4>
+                                <ol class="steps-list">
+                                    <li>Detailed mapping of priority areas (2 months)</li>
+                                    <li>Selection of native species suitable for the local climate (1 month)</li>
+                                    <li>Acquisition of seedlings and soil preparation (3 months)</li>
+                                    <li>Phased planting, starting with critical areas (8 months)</li>
+                                    <li>Continuous monitoring and maintenance (4 months)</li>
+                                </ol>
+                            </div>
+
+                            <div class="solution-actions">
+                                <button class="solution-btn implement" onclick="implementSolution(1)">
+                                    ✅ Implement Solution
+                                </button>
+                                <button class="solution-btn details" onclick="viewSolutionDetails(1)">
+                                    📋 View Full Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <h3 class="solution-title">🚒 Fire Monitoring and Response System</h3>
+                                <span class="solution-priority high">High Priority</span>
+                            </div>
+                            
+                            <p class="solution-description">
+                                Creation of an integrated system for early detection and rapid response to heat hotspots, with brigade teams and environmental education for prevention.
+                            </p>
+
+                            <div class="solution-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-icon">💰</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Estimated Cost</span>
+                                        <span class="metric-value">R$ 450,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⏱️</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Timeline</span>
+                                        <span class="metric-value">6 months</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">📈</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Expected Impact</span>
+                                        <span class="metric-value">-70% heat hotspots</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-steps">
+                                <h4 class="steps-title">Implementation Steps:</h4>
+                                <ol class="steps-list">
+                                    <li>Acquisition of monitoring equipment (1 month)</li>
+                                    <li>Training of brigade teams (2 months)</li>
+                                    <li>Implementation of an integrated alert system (2 months)</li>
+                                    <li>Environmental education campaigns (ongoing)</li>
+                                </ol>
+                            </div>
+
+                            <div class="solution-actions">
+                                <button class="solution-btn implement" onclick="implementSolution(2)">
+                                    ✅ Implement Solution
+                                </button>
+                                <button class="solution-btn details" onclick="viewSolutionDetails(2)">
+                                    📋 View Full Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <h3 class="solution-title">🚴 Incentive for Sustainable Mobility</h3>
+                                <span class="solution-priority medium">Medium Priority</span>
+                            </div>
+                            
+                            <p class="solution-description">
+                                Expansion of cycling infrastructure and incentives for public transport to reduce CO₂ emissions in central areas.
+                            </p>
+
+                            <div class="solution-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-icon">💰</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Estimated Cost</span>
+                                        <span class="metric-value">R$ 650,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⏱️</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Timeline</span>
+                                        <span class="metric-value">12 months</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">📈</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Expected Impact</span>
+                                        <span class="metric-value">-25% CO₂ emissions</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-steps">
+                                <h4 class="steps-title">Implementation Steps:</h4>
+                                <ol class="steps-list">
+                                    <li>Feasibility study and priority routes (2 months)</li>
+                                    <li>Construction of bike lanes and racks (6 months)</li>
+                                    <li>Implementation of a bike-sharing system (3 months)</li>
+                                    <li>Campaigns to encourage use (ongoing)</li>
+                                </ol>
+                            </div>
+
+                            <div class="solution-actions">
+                                <button class="solution-btn implement" onclick="implementSolution(3)">
+                                    ✅ Implement Solution
+                                </button>
+                                <button class="solution-btn details" onclick="viewSolutionDetails(3)">
+                                    📋 View Full Details
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="solution-card">
+                            <div class="solution-header">
+                                <h3 class="solution-title">🏞️ Creation of Linear Parks</h3>
+                                <span class="solution-priority medium">Medium Priority</span>
+                            </div>
+                            
+                            <p class="solution-description">
+                                Development of linear parks along streams and existing green areas, integrating leisure, environmental preservation, and ecological connectivity.
+                            </p>
+
+                            <div class="solution-metrics">
+                                <div class="metric-item">
+                                    <span class="metric-icon">💰</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Estimated Cost</span>
+                                        <span class="metric-value">R$ 850,000</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">⏱️</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Timeline</span>
+                                        <span class="metric-value">24 months</span>
+                                    </div>
+                                </div>
+                                <div class="metric-item">
+                                    <span class="metric-icon">📈</span>
+                                    <div class="metric-info">
+                                        <span class="metric-label">Expected Impact</span>
+                                        <span class="metric-value">+8% VCI, quality of life</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="solution-steps">
+                                <h4 class="steps-title">Implementation Steps:</h4>
+                                <ol class="steps-list">
+                                    <li>Identification and expropriation of areas (4 months)</li>
+                                    <li>Landscape and environmental design (3 months)</li>
+                                    <li>Infrastructure and landscaping works (14 months)</li>
+                                    <li>Inauguration and community management (3 months)</li>
+                                </ol>
+                            </div>
+
+                            <div class="solution-actions">
+                                <button class="solution-btn implement" onclick="implementSolution(4)">
+                                    ✅ Implement Solution
+                                </button>
+                                <button class="solution-btn details" onclick="viewSolutionDetails(4)">
+                                    📋 View Full Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="report-section">
+                    <div class="section-header">
+                        <h2 class="section-title">📊 Impact Summary</h2>
+                    </div>
+
+                    <div class="impact-summary">
+                        <div class="impact-card">
+                            <div class="impact-icon">🌳</div>
+                            <div class="impact-info">
+                                <span class="impact-value">+12%</span>
+                                <span class="impact-label">Increase in Average VCI</span>
+                            </div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">🌡️</div>
+                            <div class="impact-info">
+                                <span class="impact-value">-3.5°C</span>
+                                <span class="impact-label">Temperature Reduction</span>
+                            </div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">💨</div>
+                            <div class="impact-info">
+                                <span class="impact-value">-30%</span>
+                                <span class="impact-label">Reduction in CO₂ Emissions</span>
+                            </div>
+                        </div>
+                        <div class="impact-card">
+                            <div class="impact-icon">👥</div>
+                            <div class="impact-info">
+                                <span class="impact-value">150k</span>
+                                <span class="impact-label">People Benefited</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Set report date
+        document.getElementById('report-date').textContent = new Date().toLocaleString('en-US', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+
+        // Solution actions
+        function implementSolution(id) {
+            if (confirm(`Do you really want to implement Solution ${id}?\n\nThis action will start the implementation process and notify the responsible agencies.`)) {
+                alert(`✅ Solution ${id} marked for implementation!\n\nThe responsible agencies have been notified and the implementation process will begin.`);
+            }
+        }
+
+        function viewSolutionDetails(id) {
+            alert(`📋 Full Details of Solution ${id}\n\nIn production, this action would open a detailed page with:\n- Technical feasibility analysis\n- Detailed budget\n- Complete timeline\n- Monitoring indicators\n- Technical documentation`);
+        }
+
+        function generatePDF() {
+            alert('📄 Generating PDF Report...\n\nIn production, the full report would be generated and downloaded automatically.');
+        }
+
+        function sendToAgency() {
+            const agency = prompt('To which agency do you want to send the report?\n\n1. Planning Department\n2. Public Works Department\n3. Environmental Department\n4. All agencies\n\nEnter the number:');
+            
+            if (agency) {
+                alert(`📧 Report sent successfully!\n\nThe report has been sent to the selected agency and is awaiting review.`);
+            }
+        }
+
+        function exportData() {
+            alert('💾 Exporting Data...\n\nIn production, the data would be exported in CSV/Excel format for external analysis.');
+        }
+    </script>
+</body>
+</html>
